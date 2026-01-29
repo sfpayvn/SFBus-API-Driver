@@ -15,6 +15,9 @@ export class DriverBusProvinceDto {
   @Expose()
   isDefault?: boolean;
 
+  @Expose()
+  isActive?: boolean;
+
   @Exclude()
   createdAt?: Date;
 

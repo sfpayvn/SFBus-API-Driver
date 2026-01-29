@@ -16,7 +16,7 @@ export class DriverUpdateGoodsStatus {
 
 export class DriverRequestUpdateGoodsBoardingDto {
   @IsNotEmpty()
-  @IsIn([GOODS_STATUS.PENDING, GOODS_STATUS.ON_BOARD, GOODS_STATUS.DROPPED_OFF, GOODS_STATUS.COMPLETED])
+  @IsIn([GOODS_STATUS.PENDING, GOODS_STATUS.ON_BOARD, GOODS_STATUS.ARRIVED_FINAL_STATION, GOODS_STATUS.COMPLETED])
   status: string;
 
   @IsNotEmpty()

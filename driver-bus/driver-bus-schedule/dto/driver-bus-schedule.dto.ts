@@ -65,6 +65,9 @@ export class DriverBusScheduleDto {
   busId?: Types.ObjectId;
 
   @Expose()
+  currentStationId: Types.ObjectId;
+
+  @Expose()
   busDriverIds: Types.ObjectId[];
 
   @Expose()

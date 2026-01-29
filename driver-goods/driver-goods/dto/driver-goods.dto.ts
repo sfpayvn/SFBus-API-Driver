@@ -7,6 +7,7 @@ import { Types } from 'mongoose';
 import { BusRouteDto } from '@/module/core/bus/bus-route/dto/bus-route.dto';
 import { BusScheduleDto } from '@/module/core/bus/bus-schedule/dto/bus-schedule.dto';
 import { DriverGoodsCategoryDto } from '../../driver-good-category/dto/driver-goods-category.dto';
+import { DeliveryType, FulfillmentMode } from '@/module/core/goods/types/goods.types';
 
 export class DriverGoodsDto {
   @Expose()
@@ -34,17 +35,8 @@ export class DriverGoodsDto {
   customerPhoneNumber: string;
 
   @Expose()
-  customerAddress: string;
-
-  @Expose()
   senderName: string;
-
-  @Expose()
-  senderPhoneNumber: string;
-
-  @Expose()
-  senderAddress: string;
-
+  
   @Expose()
   goodsPriority: number;
 
@@ -89,6 +81,44 @@ export class DriverGoodsDto {
 
   @Expose()
   paidBy: string;
+
+  // Station relationship fields
+  @Expose()
+  @IsOptional()
+  originStationId?: Types.ObjectId; // station gửi (office gửi)
+
+  @Expose()
+  @IsOptional()
+  destinationStationId?: Types.ObjectId; // station nhận (office nhận / hub cuối)
+
+  @Expose()
+  @IsOptional()
+  currentStationId?: Types.ObjectId; // station hiện tại đang giữ hàng (null khi ON_BOARD)
+
+  @Expose()
+  @IsOptional()
+  currentScheduleId?: Types.ObjectId; // schedule hiện tại (alias cho busScheduleId)
+
+  // Delivery type & address
+  @Expose()
+  @IsOptional()
+  deliveryType?: DeliveryType; // STATION | ADDRESS
+
+  @Expose()
+  @IsOptional()
+  pickupFulfillmentMode?: FulfillmentMode; // ROADSIDE | STATION
+
+  @Expose()
+  @IsOptional()
+  deliveryFulfillmentMode?: FulfillmentMode; // ROADSIDE | STATION
+
+  @Expose()
+  @IsOptional()
+  pickupAddress?: string; // nếu nhận dọc đường
+
+  @Expose()
+  @IsOptional()
+  deliveryAddress?: string; // nếu giao tận nhà
 
   @Exclude()
   createdAt: Date;

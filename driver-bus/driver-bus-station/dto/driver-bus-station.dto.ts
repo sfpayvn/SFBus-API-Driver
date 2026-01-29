@@ -30,6 +30,9 @@ export class DriverBusStationDto {
   @Expose()
   isDefault?: boolean;
 
+  @Expose()
+  isActive?: boolean;
+
   @Exclude()
   createdAt?: Date;
 

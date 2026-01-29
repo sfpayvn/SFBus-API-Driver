@@ -47,7 +47,7 @@ export class DriverGoodsService {
     driverRequestUpdateGoodsBoardingDto: DriverRequestUpdateGoodsBoardingDto,
     tenantId: Types.ObjectId,
     updatedBy: Types.ObjectId,
-  ): Promise<PosGoodsDto[]> {
+  ): Promise<GoodsDto[]> {
     const goodses = await this.goodsService.updatesGoodsBoarding(driverRequestUpdateGoodsBoardingDto, tenantId);
     // Tạo tracking cho từng goods
     for (const goodsDto of goodses) {
