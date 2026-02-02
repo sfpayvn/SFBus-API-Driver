@@ -32,7 +32,13 @@ export class DriverGoodsService {
 
     const filterByStatus = {
       key: 'status',
-      value: [GOODS_STATUS.NEW, GOODS_STATUS.PENDING, GOODS_STATUS.ON_BOARD, GOODS_STATUS.COMPLETED],
+      value: [
+        GOODS_STATUS.PENDING,
+        GOODS_STATUS.ON_BOARD,
+        GOODS_STATUS.ARRIVED_FINAL_STATION,
+        GOODS_STATUS.OUT_FOR_DELIVERY,
+        GOODS_STATUS.COMPLETED,
+      ],
     };
 
     filters.push(filterByStatus);

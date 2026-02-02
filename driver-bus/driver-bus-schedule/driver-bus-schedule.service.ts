@@ -32,4 +32,12 @@ export class DriverBusScheduleService {
   ): Promise<DriverBusScheduleDto[]> {
     return this.busScheduleService.searchBusScheduleByDriver(keyword, sortBy, filters, driverId, tenantId);
   }
+
+  async updateCurrentStation(
+    busScheduleId: Types.ObjectId,
+    currentStationId: Types.ObjectId,
+    tenantId: Types.ObjectId,
+  ): Promise<DriverBusScheduleDto> {
+    return this.busScheduleService.updateCurrentStation(busScheduleId, currentStationId, tenantId);
+  }
 }

@@ -86,6 +86,10 @@ export class DriverBookingDto {
   userId: string;
 
   @Expose()
+  @Type(() => Number)
+  quantity: number;
+
+  @Expose()
   @Type(() => DriverUserInforBookingDto)
   userInfo: DriverUserInforBookingDto;
 
